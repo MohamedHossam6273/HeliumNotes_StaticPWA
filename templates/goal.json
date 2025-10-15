@@ -1,0 +1,11 @@
+{
+  "id": "goal",
+  "name": "Goal Tracker",
+  "emoji": "🎯",
+  "fields": [ { "label": "Goal", "type": "text" }, { "label": "Steps", "type": "textarea" } ],
+  "stories": [
+    "Small checkpoints: Write about the smallest repeatable action that moves you toward this goal. Describe doing it for five minutes — what changes?",
+    "A future postcard: Imagine it's six months from now and you reached the goal. What does your day look like? Paint three sensory details.",
+    "Obstacle map: Name one obstacle and one micro action to avoid it. Then write a short pep-talk to yourself as if you're the coach."
+  ]
+}

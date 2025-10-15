@@ -1,0 +1,3 @@
+{
+  "templates": ["brain.json", "problem.json", "goal.json", "study.json"]
+}

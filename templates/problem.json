@@ -1,0 +1,11 @@
+{
+  "id": "problem",
+  "name": "Problem Solver",
+  "emoji": "💡",
+  "fields": [ { "label": "Problem", "type": "text" }, { "label": "Solutions", "type": "textarea" } ],
+  "stories": [
+    "The stubborn knot: Describe a time something wouldn't work. Break it into the first action you tried, what failed, and one surprising idea you didn't test.",
+    "The friendly skeptic: Imagine your best friend challenges your approach — record their questions and answer them honestly. The answers often reveal a new route.",
+    "Reverse the problem: Flip the issue upside down and write the worst possible solution. Then invert it into a workable plan."
+  ]
+}

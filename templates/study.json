@@ -1,0 +1,11 @@
+{
+  "id": "study",
+  "name": "Study Notes",
+  "emoji": "📚",
+  "fields": [ { "label": "Topic", "type": "text" }, { "label": "Key Points", "type": "textarea" } ],
+  "stories": [
+    "The curious student: Begin with a question that made you curious today. Write a 5-sentence explanation as if teaching it to someone new.",
+    "The aha moment: Describe a concept that suddenly clicked for you. What metaphor helps you remember it?",
+    "The application: Write one sentence about how you'll use this idea in real life, then expand into a short example."
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "id": "brain",
+  "name": "Brain Dump",
+  "emoji": "🧠",
+  "fields": [ { "label": "Thoughts", "type": "textarea" } ],
+  "stories": [
+    "A restless morning: You woke with a dozen tiny questions buzzing — write the first three without judging them. Let them be messy; clarity comes later.",
+    "The found postcard: Imagine finding a postcard from your future self with one line of advice. What's written? Use it to open a new scene.",
+    "Tiny victories: Recall a small thing you did that made today easier. Turn it into a short list and expand one item into a paragraph."
+  ]
+}
