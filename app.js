@@ -22,6 +22,7 @@ async function init(){
     loadData();
     applyLang();
     if(APP.dark){ document.body.classList.add('dark-mode'); document.getElementById('themeBtn').textContent = '☀️'; }
+    registerServiceWorker();
     renderTemplates(); renderNotes(); renderGarden(); renderGoals(); updateStats();
 }
 
@@ -128,4 +129,12 @@ async function loadTemplatesFromFiles(){ try{ const idxResp = await fetch('templ
     } }
 
 // Start
+function registerServiceWorker() {
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('sw.js')
+            .then(reg => console.log('Service Worker registered', reg))
+            .catch(err => console.error('Service Worker registration failed', err));
+    }
+}
+
 init();
