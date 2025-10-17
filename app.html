@@ -161,6 +161,12 @@
         </div>
     </div>
 
+    <script src="pwa-init.js"></script>
+    <script>
+        // Register PWA features for the main app page.
+        registerServiceWorker();
+        setupInstallPrompt();
+    </script>
     <script src="app.js"></script>
 </body>
 </html>

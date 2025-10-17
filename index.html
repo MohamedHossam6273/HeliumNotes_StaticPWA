@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title id="pageTitle">Welcome to HeliumNotes</title>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#3b82f6"/>
     <link rel="stylesheet" href="landing.css">
     <link rel="icon" href="icons/icon-192x192.png" type="image/png">
     <meta id="pageDescription" name="description" content="Organize your thoughts, achieve your goals, and grow a garden of accomplishments with HeliumNotes.">
@@ -34,6 +36,7 @@
         </main>
 
         <a href="app.html" class="cta-button" id="launchBtn">Launch App</a>
+        <button class="cta-button" id="installBtn" onclick="installApp()" style="display: none; margin-top: 15px;">🚀 Install App</button>
     </div>
 
     <script>
@@ -50,7 +53,8 @@
                 feature3Title: "🌿 Your Digital Garden",
                 feature3Desc: "Every note you write grows a plant in your personal garden, motivating you to write more.",
                 launchBtn: "Launch App",
-                langBtn: "🌐 AR"
+                langBtn: "🌐 AR",
+                installBtn: "🚀 Install App"
             },
             ar: {
                 pageTitle: "أهلاً بك في ملاحظات هيليوم",
@@ -64,7 +68,8 @@
                 feature3Title: "🌿 حديقتك الرقمية",
                 feature3Desc: "كل ملاحظة تكتبها تنمو نبتة في حديقتك الشخصية، مما يحفزك على الكتابة أكثر.",
                 launchBtn: "افتح التطبيق",
-                langBtn: "🌐 EN"
+                langBtn: "🌐 EN",
+                installBtn: "🚀 تثبيت التطبيق"
             }
         };
 
@@ -91,6 +96,17 @@
 
         // Apply language on initial load
         applyLanguage();
+    </script>
+    <script src="pwa-init.js"></script>
+    <script>
+        // Register PWA features immediately on script load.
+        registerServiceWorker();
+        setupInstallPrompt();
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const installButton = document.getElementById('installBtn');
+            if (installButton) installButton.addEventListener('click', installApp);
+        });
     </script>
 </body>
 </html>

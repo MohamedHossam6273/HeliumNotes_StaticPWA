@@ -7,8 +7,7 @@ const APP = {
     dark: localStorage.getItem('dark') === 'true',
     color: 'blue',
     currentNote: null,
-    currentTemplate: null,
-    installPromptEvent: null
+    currentTemplate: null
 };
 
 const T = {
@@ -111,30 +110,6 @@ function exportPDF(){ if(!APP.currentNote) return; const {jsPDF} = window.jspdf;
 function notify(msg){ const n=document.createElement('div'); n.className='notification'; n.textContent=msg; document.body.appendChild(n); setTimeout(()=>n.remove(),3000); }
 function esc(str){ const div=document.createElement('div'); div.textContent=str; return div.innerHTML; }
 
-function setupInstallPrompt() {
-    window.addEventListener('beforeinstallprompt', (event) => {
-        // Prevent the mini-infobar from appearing on mobile
-        event.preventDefault();
-        // Stash the event so it can be triggered later.
-        APP.installPromptEvent = event;
-        // Update UI to notify the user they can install the PWA
-        const installBtn = document.getElementById('installBtn');
-        if (installBtn) {
-            installBtn.style.display = 'block';
-        }
-    });
-}
-
-async function installApp() {
-    if (!APP.installPromptEvent) return;
-    const result = await APP.installPromptEvent.prompt();
-    console.log(`Install prompt result: ${result.outcome}`);
-    // The prompt can only be used once.
-    APP.installPromptEvent = null;
-    // Hide the install button.
-    document.getElementById('installBtn').style.display = 'none';
-}
-
 // Load templates by fetching files from templates/index.json and each template file
 async function loadTemplatesFromFiles(){ try{ const idxResp = await fetch('templates/index.json'); if(!idxResp.ok) throw new Error('templates index not found'); const idx = await idxResp.json(); const files = idx.templates || [];
         const templates = [];
@@ -155,17 +130,5 @@ async function loadTemplatesFromFiles(){ try{ const idxResp = await fetch('templ
         };
     } }
 
-// Start
-function registerServiceWorker() {
-    if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('sw.js')
-            .then(reg => console.log('Service Worker registered', reg))
-            .catch(err => console.error('Service Worker registration failed', err));
-    }
-}
-
-// Register PWA features immediately on script load to avoid race conditions.
-registerServiceWorker();
-setupInstallPrompt();
-
+// Initialize the app
 init();
