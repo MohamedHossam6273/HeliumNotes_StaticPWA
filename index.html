@@ -143,6 +143,7 @@
                 <h2 id="h7">⚙️ Settings</h2>
                 <h3 id="h8">Import/Export</h3>
                 <div class="form-group">
+                    <button class="btn" id="installBtn" onclick="installApp()" style="display: none;">🚀 Install App</button>
                     <button class="btn btn-secondary" onclick="exportData()"><span id="b3">📥 Export Notes</span></button>
                     <input type="file" id="importFile" accept=".json" onchange="importData(event)">
                     <button class="btn btn-danger" onclick="clearData()"><span id="b4">🗑️ Clear All</span></button>

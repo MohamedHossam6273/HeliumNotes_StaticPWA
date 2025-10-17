@@ -5,7 +5,6 @@ const urlsToCache = [
   './styles.css',
   './app.js',
   './manifest.json',
-  './templates/index.json',
   './icons/icon-192x192.png',
   './icons/icon-512x512.png',
   './templates/brain.json',
@@ -42,13 +41,22 @@ self.addEventListener('activate', event => {
   );
 });
 
-// Serve cached content when offline
+// Use a "Stale-While-Revalidate" strategy
 self.addEventListener('fetch', event => {
   event.respondWith(
-    caches.match(event.request)
-      .then(response => {
-        // Cache hit - return response
-        return response || fetch(event.request);
+    caches.open(CACHE_NAME).then(cache => {
+      return cache.match(event.request).then(response => {
+        const fetchPromise = fetch(event.request).then(networkResponse => {
+          // If the request is for an external resource (like the CDN),
+          // ensure we only cache valid responses to avoid errors.
+          if (event.request.url.startsWith(self.location.origin) || (networkResponse && networkResponse.status === 200 && networkResponse.type === 'basic')) {
+             cache.put(event.request, networkResponse.clone());
+          }
+          return networkResponse;
+        });
+        // Return cached version immediately, then update cache in background
+        return response || fetchPromise;
       })
-  );
+    })
+  )
 });

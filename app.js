@@ -7,7 +7,8 @@ const APP = {
     dark: localStorage.getItem('dark') === 'true',
     color: 'blue',
     currentNote: null,
-    currentTemplate: null
+    currentTemplate: null,
+    installPromptEvent: null
 };
 
 const T = {
@@ -22,7 +23,6 @@ async function init(){
     loadData();
     applyLang();
     if(APP.dark){ document.body.classList.add('dark-mode'); document.getElementById('themeBtn').textContent = '☀️'; }
-    registerServiceWorker();
     renderTemplates(); renderNotes(); renderGarden(); renderGoals(); updateStats();
 }
 
@@ -111,15 +111,42 @@ function exportPDF(){ if(!APP.currentNote) return; const {jsPDF} = window.jspdf;
 function notify(msg){ const n=document.createElement('div'); n.className='notification'; n.textContent=msg; document.body.appendChild(n); setTimeout(()=>n.remove(),3000); }
 function esc(str){ const div=document.createElement('div'); div.textContent=str; return div.innerHTML; }
 
+function setupInstallPrompt() {
+    window.addEventListener('beforeinstallprompt', (event) => {
+        // Prevent the mini-infobar from appearing on mobile
+        event.preventDefault();
+        // Stash the event so it can be triggered later.
+        APP.installPromptEvent = event;
+        // Update UI to notify the user they can install the PWA
+        const installBtn = document.getElementById('installBtn');
+        if (installBtn) {
+            installBtn.style.display = 'block';
+        }
+    });
+}
+
+async function installApp() {
+    if (!APP.installPromptEvent) return;
+    const result = await APP.installPromptEvent.prompt();
+    console.log(`Install prompt result: ${result.outcome}`);
+    // The prompt can only be used once.
+    APP.installPromptEvent = null;
+    // Hide the install button.
+    document.getElementById('installBtn').style.display = 'none';
+}
+
 // Load templates by fetching files from templates/index.json and each template file
 async function loadTemplatesFromFiles(){ try{ const idxResp = await fetch('templates/index.json'); if(!idxResp.ok) throw new Error('templates index not found'); const idx = await idxResp.json(); const files = idx.templates || [];
         const templates = [];
         for(const f of files){ try{ const resp = await fetch(`templates/${f}`); if(!resp.ok) continue; const data = await resp.json(); templates.push(data); }catch(e){ console.warn('failed to load',f,e); } }
         // Build language-specific arrays (we'll duplicate english names into ar if not present)
         APP.templates.en = templates.map(t=>t);
-        // For simplicity keep same templates for Arabic; a real app would provide translated JSONs
-        APP.templates.ar = templates.map(t=>{ const copy = Object.assign({}, t); // try to translate basic fields if Arabic labels exist in file
-            if(!copy.name_ar) copy.name_ar = copy.name; return copy; });
+        // Create a deep copy for the Arabic templates to prevent data corruption.
+        // A shallow copy (Object.assign) would cause both languages to share the same 'fields' array reference.
+        APP.templates.ar = JSON.parse(JSON.stringify(templates));
+        // A real app would provide fully translated JSON files. For now, we just ensure they are separate.
+        // Example of how you might translate if the data was available:
+        // APP.templates.ar.forEach(t => { t.name = t.name_ar || t.name; t.fields.forEach(f => f.label = f.label_ar || f.label); });
     }catch(err){ console.warn('Could not load templates folder, falling back to built-in templates', err);
         // fallback to original inline set
         APP.templates = {
@@ -136,5 +163,9 @@ function registerServiceWorker() {
             .catch(err => console.error('Service Worker registration failed', err));
     }
 }
+
+// Register PWA features immediately on script load to avoid race conditions.
+registerServiceWorker();
+setupInstallPrompt();
 
 init();
