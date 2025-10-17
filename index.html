@@ -3,164 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HeliumNotes 🌿</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#3b82f6"/>
-    <link rel="stylesheet" href="styles.css">
+    <title id="pageTitle">Welcome to HeliumNotes</title>
+    <link rel="stylesheet" href="landing.css">
     <link rel="icon" href="icons/icon-192x192.png" type="image/png">
-    <meta name="referrer" content="no-referrer">
+    <meta id="pageDescription" name="description" content="Organize your thoughts, achieve your goals, and grow a garden of accomplishments with HeliumNotes.">
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <div class="logo">🌿 <span id="appTitle">HeliumNotes</span></div>
-            <div class="header-controls">
-                <button class="icon-btn" id="langBtn" onclick="toggleLang()">🌐</button>
-                <button class="icon-btn" id="themeBtn" onclick="toggleTheme()">🌙</button>
+        <div class="landing-header-controls">
+            <button class="lang-btn" id="langBtn" onclick="toggleLanguage()">🌐 AR</button>
+        </div>
+        <header class="header">
+            <h1 id="mainHeading">🌿 HeliumNotes</h1>
+            <p id="subHeading">Organize your thoughts, achieve your goals, and grow a garden of accomplishments.</p>
+        </header>
+
+        <main class="main-content">
+            <div class="feature-card">
+                <h3 id="feature1Title">📝 Smart Templates</h3>
+                <p id="feature1Desc">Get started quickly with pre-built templates for brain dumps, problem-solving, and study notes.</p>
             </div>
-        </div>
-
-        <div class="tabs">
-            <button class="tab-btn active" onclick="switchTab(0)"><span id="t1">📝 Notes</span></button>
-            <button class="tab-btn" onclick="switchTab(1)"><span id="t2">🌿 Garden</span></button>
-            <button class="tab-btn" onclick="switchTab(2)"><span id="t3">🎯 Goals</span></button>
-            <button class="tab-btn" onclick="switchTab(3)"><span id="t4">📊 Analytics</span></button>
-            <button class="tab-btn" onclick="switchTab(4)"><span id="t5">⚙️ Settings</span></button>
-        </div>
-
-        <!-- NOTES TAB -->
-        <div class="tab-content active">
-            <div class="grid-2">
-                <div class="card">
-                    <h2 id="h1">📝 Create Note</h2>
-                    <div class="form-group">
-                        <label id="l1">Template</label>
-                        <select id="template" onchange="loadTemplate()">
-                            <option value="">Choose Template</option>
-                        </select>
-                        
-                        <div id="templateFields"></div>
-
-                        <label id="l2">Notebook</label>
-                        <select id="notebook">
-                            <option value="">Choose Notebook</option>
-                            <option value="📚 Study">📚 Study</option>
-                            <option value="💼 Business">💼 Business</option>
-                            <option value="🎨 Personal">🎨 Personal</option>
-                        </select>
-                        
-                        <label id="l3">Title</label>
-                        <input type="text" id="noteTitle" placeholder="Note title">
-                        
-                        <label id="l4">Content</label>
-                        <textarea id="noteContent" placeholder="Write here"></textarea>
-                        
-                        <label id="l5">Color</label>
-                        <div class="color-grid">
-                            <button class="color-btn active" style="background:#3b82f6" data-color="blue" onclick="selectColor(this)"></button>
-                            <button class="color-btn" style="background:#10b981" data-color="green" onclick="selectColor(this)"></button>
-                            <button class="color-btn" style="background:#f59e0b" data-color="amber" onclick="selectColor(this)"></button>
-                            <button class="color-btn" style="background:#ef4444" data-color="red" onclick="selectColor(this)"></button>
-                            <button class="color-btn" style="background:#8b5cf6" data-color="purple" onclick="selectColor(this)"></button>
-                            <button class="color-btn" style="background:#ec4899" data-color="pink" onclick="selectColor(this)"></button>
-                        </div>
-                        
-                        <button class="btn" onclick="addNote()"><span id="b1">✨ Add Note</span></button>
-                    </div>
-                    
-                    <h3 id="h2">Your Notes</h3>
-                    <input type="text" id="searchNotes" placeholder="Search" style="margin-bottom:10px" oninput="renderNotes()">
-                    <div class="notes-list" id="notesList"></div>
-                </div>
-                
-                <div class="card">
-                    <h2 id="h3">📋 Templates</h2>
-                    <p id="p1" style="font-size:13px;color:var(--text-light);margin-bottom:15px">Select a template</p>
-                    <div id="templateGrid"></div>
-                    <div id="templateInspiration"></div>
-                </div>
+            <div class="feature-card">
+                <h3 id="feature2Title">🎯 Goal Tracking</h3>
+                <p id="feature2Desc">Set your daily or weekly goals and easily track your progress toward achieving them.</p>
             </div>
-        </div>
-
-        <!-- GARDEN TAB -->
-        <div class="tab-content">
-            <div class="card">
-                <h2 id="h4">🌿 Your Garden</h2>
-                <p id="p2" style="color:var(--text-light);margin-bottom:15px">Each note grows a plant</p>
-                <div class="garden-container">
-                    <div class="garden" id="garden"></div>
-                </div>
+            <div class="feature-card">
+                <h3 id="feature3Title">🌿 Your Digital Garden</h3>
+                <p id="feature3Desc">Every note you write grows a plant in your personal garden, motivating you to write more.</p>
             </div>
-        </div>
+        </main>
 
-        <!-- GOALS TAB -->
-        <div class="tab-content">
-            <div class="card">
-                <h2 id="h5">🎯 Goals</h2>
-                <div class="form-group">
-                    <input type="text" id="goalTitle" placeholder="Goal">
-                    <input type="number" id="goalTarget" value="1" min="1">
-                    <select id="goalPeriod">
-                        <option value="daily">Daily</option>
-                        <option value="weekly">Weekly</option>
-                        <option value="monthly">Monthly</option>
-                    </select>
-                    <button class="btn" onclick="addGoal()"><span id="b2">Add Goal</span></button>
-                </div>
-                <div id="goalsList" style="margin-top:20px"></div>
-            </div>
-        </div>
-
-        <!-- ANALYTICS TAB -->
-        <div class="tab-content">
-            <div class="card">
-                <h2 id="h6">📊 Analytics</h2>
-                <div class="grid-4">
-                    <div class="stat-box">
-                        <div class="stat-value" id="statTotal">0</div>
-                        <div class="stat-label" id="sl1">Total</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-value" id="statDone">0</div>
-                        <div class="stat-label" id="sl2">Done</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-value" id="statToday">0</div>
-                        <div class="stat-label" id="sl3">Today</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-value" id="statPlants">0</div>
-                        <div class="stat-label" id="sl4">Plants</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- SETTINGS TAB -->
-        <div class="tab-content">
-            <div class="card">
-                <h2 id="h7">⚙️ Settings</h2>
-                <h3 id="h8">Import/Export</h3>
-                <div class="form-group">
-                    <button class="btn" id="installBtn" onclick="installApp()" style="display: none;">🚀 Install App</button>
-                    <button class="btn btn-secondary" onclick="exportData()"><span id="b3">📥 Export Notes</span></button>
-                    <input type="file" id="importFile" accept=".json" onchange="importData(event)">
-                    <button class="btn btn-danger" onclick="clearData()"><span id="b4">🗑️ Clear All</span></button>
-                </div>
-            </div>
-        </div>
+        <a href="app.html" class="cta-button" id="launchBtn">Launch App</a>
     </div>
 
-    <!-- MODAL -->
-    <div id="modal" class="modal" onclick="if(event.target===this) closeModal()">
-        <div class="modal-content">
-            <button class="modal-close" onclick="closeModal()">×</button>
-            <div id="modalContent"></div>
-            <button class="btn" onclick="exportPDF()" style="margin-top:15px"><span id="b5">📄 Export PDF</span></button>
-        </div>
-    </div>
+    <script>
+        const translations = {
+            en: {
+                pageTitle: "Welcome to HeliumNotes",
+                pageDescription: "Organize your thoughts, achieve your goals, and grow a garden of accomplishments with HeliumNotes.",
+                mainHeading: "🌿 HeliumNotes",
+                subHeading: "Organize your thoughts, achieve your goals, and grow a garden of accomplishments.",
+                feature1Title: "📝 Smart Templates",
+                feature1Desc: "Get started quickly with pre-built templates for brain dumps, problem-solving, and study notes.",
+                feature2Title: "🎯 Goal Tracking",
+                feature2Desc: "Set your daily or weekly goals and easily track your progress toward achieving them.",
+                feature3Title: "🌿 Your Digital Garden",
+                feature3Desc: "Every note you write grows a plant in your personal garden, motivating you to write more.",
+                launchBtn: "Launch App",
+                langBtn: "🌐 AR"
+            },
+            ar: {
+                pageTitle: "أهلاً بك في ملاحظات هيليوم",
+                pageDescription: "نظّم أفكارك، حقق أهدافك، وازرع حديقة من الإنجازات مع ملاحظات هيليوم.",
+                mainHeading: "🌿 ملاحظات هيليوم",
+                subHeading: "نظّم أفكارك، حقق أهدافك، وازرع حديقة من الإنجازات.",
+                feature1Title: "📝 قوالب ذكية",
+                feature1Desc: "ابدأ بسرعة باستخدام قوالب جاهزة لتفريغ الأفكار وحل المشكلات وتدوين ملاحظات الدراسة.",
+                feature2Title: "🎯 تتبع الأهداف",
+                feature2Desc: "حدد أهدافك اليومية أو الأسبوعية وتتبع تقدمك نحو تحقيقها بسهولة.",
+                feature3Title: "🌿 حديقتك الرقمية",
+                feature3Desc: "كل ملاحظة تكتبها تنمو نبتة في حديقتك الشخصية، مما يحفزك على الكتابة أكثر.",
+                launchBtn: "افتح التطبيق",
+                langBtn: "🌐 EN"
+            }
+        };
 
-    <script src="app.js"></script>
+        let currentLang = localStorage.getItem('lang') || 'en';
+
+        function applyLanguage() {
+            const langData = translations[currentLang];
+            document.documentElement.lang = currentLang;
+            document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+            for (const key in langData) {
+                const element = document.getElementById(key);
+                if (element) {
+                    if (key === 'pageDescription') element.setAttribute('content', langData[key]);
+                    else element.textContent = langData[key];
+                }
+            }
+        }
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'ar' : 'en';
+            localStorage.setItem('lang', currentLang);
+            applyLanguage();
+        }
+
+        // Apply language on initial load
+        applyLanguage();
+    </script>
 </body>
 </html>

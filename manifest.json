@@ -2,7 +2,7 @@
   "name": "HeliumNotes",
   "short_name": "HeliumNotes",
   "description": "A simple, lightweight note-taking app with templates and goals.",
-  "start_url": "./index.html",
+  "start_url": "./",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#3b82f6",

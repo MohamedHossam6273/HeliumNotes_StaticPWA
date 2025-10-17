@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HeliumNotes 🌿</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#3b82f6"/>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="icons/icon-192x192.png" type="image/png">
+    <meta name="referrer" content="no-referrer">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">🌿 <span id="appTitle">HeliumNotes</span></div>
+            <div class="header-controls">
+                <button class="icon-btn" id="langBtn" onclick="toggleLang()">🌐</button>
+                <button class="icon-btn" id="themeBtn" onclick="toggleTheme()">🌙</button>
+            </div>
+        </div>
+
+        <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab(0)"><span id="t1">📝 Notes</span></button>
+            <button class="tab-btn" onclick="switchTab(1)"><span id="t2">🌿 Garden</span></button>
+            <button class="tab-btn" onclick="switchTab(2)"><span id="t3">🎯 Goals</span></button>
+            <button class="tab-btn" onclick="switchTab(3)"><span id="t4">📊 Analytics</span></button>
+            <button class="tab-btn" onclick="switchTab(4)"><span id="t5">⚙️ Settings</span></button>
+        </div>
+
+        <!-- NOTES TAB -->
+        <div class="tab-content active">
+            <div class="grid-2">
+                <div class="card">
+                    <h2 id="h1">📝 Create Note</h2>
+                    <div class="form-group">
+                        <label id="l1">Template</label>
+                        <select id="template" onchange="loadTemplate()">
+                            <option value="">Choose Template</option>
+                        </select>
+                        
+                        <div id="templateFields"></div>
+
+                        <label id="l2">Notebook</label>
+                        <select id="notebook">
+                            <option value="">Choose Notebook</option>
+                            <option value="📚 Study">📚 Study</option>
+                            <option value="💼 Business">💼 Business</option>
+                            <option value="🎨 Personal">🎨 Personal</option>
+                        </select>
+                        
+                        <label id="l3">Title</label>
+                        <input type="text" id="noteTitle" placeholder="Note title">
+                        
+                        <label id="l4">Content</label>
+                        <textarea id="noteContent" placeholder="Write here"></textarea>
+                        
+                        <label id="l5">Color</label>
+                        <div class="color-grid">
+                            <button class="color-btn active" style="background:#3b82f6" data-color="blue" onclick="selectColor(this)"></button>
+                            <button class="color-btn" style="background:#10b981" data-color="green" onclick="selectColor(this)"></button>
+                            <button class="color-btn" style="background:#f59e0b" data-color="amber" onclick="selectColor(this)"></button>
+                            <button class="color-btn" style="background:#ef4444" data-color="red" onclick="selectColor(this)"></button>
+                            <button class="color-btn" style="background:#8b5cf6" data-color="purple" onclick="selectColor(this)"></button>
+                            <button class="color-btn" style="background:#ec4899" data-color="pink" onclick="selectColor(this)"></button>
+                        </div>
+                        
+                        <button class="btn" onclick="addNote()"><span id="b1">✨ Add Note</span></button>
+                    </div>
+                    
+                    <h3 id="h2">Your Notes</h3>
+                    <input type="text" id="searchNotes" placeholder="Search" style="margin-bottom:10px" oninput="renderNotes()">
+                    <div class="notes-list" id="notesList"></div>
+                </div>
+                
+                <div class="card">
+                    <h2 id="h3">📋 Templates</h2>
+                    <p id="p1" style="font-size:13px;color:var(--text-light);margin-bottom:15px">Select a template</p>
+                    <div id="templateGrid"></div>
+                    <div id="templateInspiration"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- GARDEN TAB -->
+        <div class="tab-content">
+            <div class="card">
+                <h2 id="h4">🌿 Your Garden</h2>
+                <p id="p2" style="color:var(--text-light);margin-bottom:15px">Each note grows a plant</p>
+                <div class="garden-container">
+                    <div class="garden" id="garden"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- GOALS TAB -->
+        <div class="tab-content">
+            <div class="card">
+                <h2 id="h5">🎯 Goals</h2>
+                <div class="form-group">
+                    <input type="text" id="goalTitle" placeholder="Goal">
+                    <input type="number" id="goalTarget" value="1" min="1">
+                    <select id="goalPeriod">
+                        <option value="daily">Daily</option>
+                        <option value="weekly">Weekly</option>
+                        <option value="monthly">Monthly</option>
+                    </select>
+                    <button class="btn" onclick="addGoal()"><span id="b2">Add Goal</span></button>
+                </div>
+                <div id="goalsList" style="margin-top:20px"></div>
+            </div>
+        </div>
+
+        <!-- ANALYTICS TAB -->
+        <div class="tab-content">
+            <div class="card">
+                <h2 id="h6">📊 Analytics</h2>
+                <div class="grid-4">
+                    <div class="stat-box">
+                        <div class="stat-value" id="statTotal">0</div>
+                        <div class="stat-label" id="sl1">Total</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-value" id="statDone">0</div>
+                        <div class="stat-label" id="sl2">Done</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-value" id="statToday">0</div>
+                        <div class="stat-label" id="sl3">Today</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-value" id="statPlants">0</div>
+                        <div class="stat-label" id="sl4">Plants</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SETTINGS TAB -->
+        <div class="tab-content">
+            <div class="card">
+                <h2 id="h7">⚙️ Settings</h2>
+                <h3 id="h8">Import/Export</h3>
+                <div class="form-group">
+                    <button class="btn" id="installBtn" onclick="installApp()" style="display: none;">🚀 Install App</button>
+                    <button class="btn btn-secondary" onclick="exportData()"><span id="b3">📥 Export Notes</span></button>
+                    <input type="file" id="importFile" accept=".json" onchange="importData(event)">
+                    <button class="btn btn-danger" onclick="clearData()"><span id="b4">🗑️ Clear All</span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL -->
+    <div id="modal" class="modal" onclick="if(event.target===this) closeModal()">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">×</button>
+            <div id="modalContent"></div>
+            <button class="btn" onclick="exportPDF()" style="margin-top:15px"><span id="b5">📄 Export PDF</span></button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

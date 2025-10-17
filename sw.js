@@ -1,7 +1,9 @@
 const CACHE_NAME = 'helium-notes-v2'; // Increment this version when you update any of the cached files
 const urlsToCache = [
   './',
-  './index.html',
+  './index.html', // Landing page
+  './landing.css',
+  './app.html',   // Main application
   './styles.css',
   './app.js',
   './manifest.json',
