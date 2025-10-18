@@ -1,4 +1,4 @@
-const CACHE_NAME = 'helium-notes-v2'; // Increment this version when you update any of the cached files
+const CACHE_NAME = 'helium-notes-v3'; // Increment this version when you update any of the cached files
 const urlsToCache = [
   './',
   './index.html', // Landing page
@@ -6,9 +6,14 @@ const urlsToCache = [
   './app.html',   // Main application
   './styles.css',
   './app.js',
+  './pwa-init.js',
   './manifest.json',
   './icons/icon-192x192.png',
   './icons/icon-512x512.png',
+  './templates/index.json',
+  './templates/artist-visualseed.json',
+  './templates/author-idea.json',
+  './templates/brain-dump-seed.json',
   './templates/brain.json',
   './templates/goal.json',
   './templates/problem.json',
