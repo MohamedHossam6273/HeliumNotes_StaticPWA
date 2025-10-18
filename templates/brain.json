@@ -1,11 +1,17 @@
 {
   "id": "brain",
   "name": "Brain Dump",
+  "name_ar": "تفريغ الأفكار",
   "emoji": "🧠",
-  "fields": [ { "label": "Thoughts", "type": "textarea" } ],
+  "fields": [ { "label": "Thoughts", "label_ar": "الأفكار", "type": "textarea" } ],
   "stories": [
     "A restless morning: You woke with a dozen tiny questions buzzing — write the first three without judging them. Let them be messy; clarity comes later.",
     "The found postcard: Imagine finding a postcard from your future self with one line of advice. What's written? Use it to open a new scene.",
     "Tiny victories: Recall a small thing you did that made today easier. Turn it into a short list and expand one item into a paragraph."
+  ],
+  "stories_ar": [
+    "صباح مضطرب: استيقظت مع عشرات الأسئلة الصغيرة التي تدور في ذهنك — اكتب أول ثلاثة منها دون الحكم عليها. دعها تكون فوضوية؛ الوضوح يأتي لاحقًا.",
+    "البطاقة البريدية المكتشفة: تخيل أنك عثرت على بطاقة بريدية من مستقبلك تحمل سطرًا واحدًا من النصائح. ما المكتوب؟ استخدمها لفتح مشهد جديد.",
+    "انتصارات صغيرة: تذكر شيئًا صغيرًا فعلته جعل اليوم أسهل. حوّله إلى قائمة قصيرة ووسّع عنصرًا واحدًا إلى فقرة."
   ]
 }

@@ -1,0 +1,36 @@
+{
+  "id": "weekly-review",
+  "name": "Weekly Review — Garden Check",
+  "name_ar": "مراجعة أسبوعية — فحص الحديقة",
+  "emoji": "🌱",
+  "fields": [
+    { "label": "Week of", "label_ar": "أسبوع", "type": "date", "help": "Which week are you reviewing?", "help_ar": "أي أسبوع تراجعه؟" },
+    { "label": "Top wins (3)", "label_ar": "أهم 3 إنجازات", "type": "textarea", "help": "Celebrate your 3 biggest wins or learnings.", "help_ar": "احتفل بأكبر 3 انتصارات أو دروس تعلمتها." },
+    { "label": "Notes reviewed (titles)", "label_ar": "الملاحظات المراجعة (عناوين)", "type": "textarea", "help": "List which notes you revisited this week.", "help_ar": "اذكر الملاحظات التي قمت بزيارتها مرة أخرى هذا الأسبوع." },
+    { "label": "Ideas to cultivate", "label_ar": "أفكار لتنميتها", "type": "textarea", "help": "What deserves more time or resources?", "help_ar": "ما الذي يستحق المزيد من الوقت أو الموارد؟" },
+    { "label": "Ideas to prune / archive", "label_ar": "أفكار لتقليمها / أرشفتها", "type": "textarea", "help": "What’s no longer relevant or valuable?", "help_ar": "ما الذي لم يعد ذا صلة أو قيمة؟" },
+    { "label": "One experiment for next week", "label_ar": "تجربة واحدة للأسبوع القادم", "type": "text", "help": "Describe a small thing you’ll try next.", "help_ar": "صف شيئًا صغيرًا ستجربه بعد ذلك." },
+    { "label": "Mood / energy (1-5)", "label_ar": "المزاج / الطاقة (1-5)", "type": "select", "options": ["1","2","3","4","5"], "help": "How did you feel this week overall?", "help_ar": "كيف شعرت هذا الأسبوع بشكل عام؟" },
+    { "label": "Tags", "label_ar": "الوسوم", "type": "tags", "help": "Use for theme (e.g., productivity, learning, wellness).", "help_ar": "استخدمها للموضوع (مثل: إنتاجية، تعلم، عافية)." }
+  ],
+  "stories": [
+    "Rediscovery: Pick one old note that surprised you when you reread it — write why it matters now.",
+    "Cultivate: Choose one idea to actively work on next week and list the first micro-step.",
+    "Prune: Note one thing you'll let go (archive) and why."
+  ],
+  "stories_ar": [
+    "إعادة اكتشاف: اختر ملاحظة قديمة واحدة فاجأتك عند إعادة قراءتها — اكتب لماذا هي مهمة الآن.",
+    "تنمية: اختر فكرة واحدة للعمل عليها بنشاط في الأسبوع القادم واذكر أول خطوة صغيرة.",
+    "تقليم: لاحظ شيئًا واحدًا ستتخلى عنه (أرشفة) ولماذا."
+  ],
+  "stories_help": {
+    "Rediscovery": "Encourages serendipitous learning — old notes often spark new ideas.",
+    "Cultivate": "Turns review into growth by identifying one actionable seed.",
+    "Prune": "Prevents clutter and keeps your digital garden healthy."
+  },
+  "stories_help_ar": {
+    "إعادة اكتشاف": "يشجع على التعلم بالصدفة — غالبًا ما تثير الملاحظات القديمة أفكارًا جديدة.",
+    "تنمية": "يحول المراجعة إلى نمو من خلال تحديد بذرة واحدة قابلة للتنفيذ.",
+    "تقليم": "يمنع الفوضى ويحافظ على صحة حديقتك الرقمية."
+  }
+}

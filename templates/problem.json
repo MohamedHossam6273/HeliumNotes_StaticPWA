@@ -1,11 +1,17 @@
 {
   "id": "problem",
   "name": "Problem Solver",
+  "name_ar": "حل المشاكل",
   "emoji": "💡",
-  "fields": [ { "label": "Problem", "type": "text" }, { "label": "Solutions", "type": "textarea" } ],
+  "fields": [ { "label": "Problem", "label_ar": "المشكلة", "type": "text" }, { "label": "Solutions", "label_ar": "الحلول", "type": "textarea" } ],
   "stories": [
     "The stubborn knot: Describe a time something wouldn't work. Break it into the first action you tried, what failed, and one surprising idea you didn't test.",
     "The friendly skeptic: Imagine your best friend challenges your approach — record their questions and answer them honestly. The answers often reveal a new route.",
     "Reverse the problem: Flip the issue upside down and write the worst possible solution. Then invert it into a workable plan."
+  ],
+  "stories_ar": [
+    "العقدة المستعصية: صف وقتًا لم ينجح فيه شيء ما. قسّمه إلى أول إجراء جربته، وما فشل، وفكرة واحدة مفاجئة لم تختبرها.",
+    "المشكك الودود: تخيل أن أفضل صديق لك يتحدى نهجك — سجل أسئلته وأجب عليها بصدق. غالبًا ما تكشف الإجابات عن طريق جديد.",
+    "اعكس المشكلة: اقلب المشكلة رأسًا على عقب واكتب أسوأ حل ممكن. ثم اقلبه إلى خطة قابلة للتطبيق."
   ]
 }

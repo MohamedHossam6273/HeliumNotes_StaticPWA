@@ -1,0 +1,37 @@
+{
+  "id": "artist-visualseed",
+  "name": "Artist — Visual Seed",
+  "name_ar": "فنان — بذرة بصرية",
+  "emoji": "🎨",
+  "fields": [
+    { "label": "Project / Series", "label_ar": "المشروع / السلسلة", "type": "text", "help": "Name of the collection or artwork group.", "help_ar": "اسم المجموعة أو مجموعة الأعمال الفنية." },
+    { "label": "Prompt / Idea", "label_ar": "المحفز / الفكرة", "type": "text", "help": "The spark or phrase that inspired this work.", "help_ar": "الشرارة أو العبارة التي ألهمت هذا العمل." },
+    { "label": "Medium", "label_ar": "الوسيط", "type": "text", "help": "Specify medium — digital, watercolor, ink, etc.", "help_ar": "حدد الوسيط — رقمي، ألوان مائية، حبر، إلخ." },
+    { "label": "Reference images / links", "label_ar": "صور / روابط مرجعية", "type": "text", "help": "URLs or filenames for moodboard references.", "help_ar": "عناوين URL أو أسماء ملفات لمراجع لوحة الإلهام." },
+    { "label": "Color / Texture notes", "label_ar": "ملاحظات اللون / الملمس", "type": "textarea", "help": "Describe the key colors or textures you want.", "help_ar": "صف الألوان أو الخامات الرئيسية التي تريدها." },
+    { "label": "Quick sketch description", "label_ar": "وصف الرسم السريع", "type": "textarea", "help": "Describe the composition briefly.", "help_ar": "صف التكوين الفني بإيجاز." },
+    { "label": "Warm-up exercise (5 min)", "label_ar": "تمرين إحماء (5 دقائق)", "type": "text", "help": "A tiny drawing task to loosen creativity.", "help_ar": "مهمة رسم صغيرة لإطلاق العنان للإبداع." },
+    { "label": "Next step (1 thing)", "label_ar": "الخطوة التالية (شيء واحد)", "type": "text", "help": "What’s the next action to move the piece forward?", "help_ar": "ما هو الإجراء التالي لدفع العمل إلى الأمام؟" },
+    { "label": "Tags", "label_ar": "الوسوم", "type": "tags", "help": "Theme, mood, or style tags (e.g., cyberpunk, pastel).", "help_ar": "وسوم للموضوع أو الحالة المزاجية أو النمط (مثل: سايبربانك، باستيل)." }
+  ],
+  "stories": [
+    "The visual trigger: Describe a one-sentence visual hook that would stop someone scrolling.",
+    "Beat the block: Do a 5-minute warm-up exercise and write one sensory detail you noticed while drawing.",
+    "Series idea: If this became a 3-piece series, name the other two pieces and one shared theme."
+  ],
+  "stories_ar": [
+    "المحفز البصري: صف في جملة واحدة خطافًا بصريًا من شأنه أن يوقف شخصًا عن التمرير.",
+    "تغلب على العائق: قم بتمرين إحماء لمدة 5 دقائق واكتب تفصيلاً حسيًا واحدًا لاحظته أثناء الرسم.",
+    "فكرة سلسلة: إذا أصبح هذا العمل سلسلة من 3 قطع، فاذكر اسم القطعتين الأخريين وموضوعًا واحدًا مشتركًا."
+  ],
+  "stories_help": {
+    "The visual trigger": "Trains your eye for captivating focal points.",
+    "Beat the block": "Gets you unstuck by moving your hand before overthinking.",
+    "Series idea": "Encourages continuity — think beyond one artwork."
+  },
+  "stories_help_ar": {
+    "المحفز البصري": "يدرب عينك على التقاط نقاط محورية آسرة.",
+    "تغلب على العائق": "يساعدك على تجاوز الجمود بتحريك يدك قبل الإفراط في التفكير.",
+    "فكرة سلسلة": "يشجع على الاستمرارية — فكر فيما هو أبعد من عمل فني واحد."
+  }
+}

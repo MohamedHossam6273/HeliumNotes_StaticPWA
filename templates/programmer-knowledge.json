@@ -1,0 +1,37 @@
+{
+  "id": "programmer-knowledge",
+  "name": "Dev Snippet & Decision",
+  "name_ar": "مقتطف وقرار مطور",
+  "emoji": "🧩",
+  "fields": [
+    { "label": "Title", "label_ar": "العنوان", "type": "text", "help": "Give your snippet or issue a short name for quick scanning.", "help_ar": "أعطِ المقتطف أو المشكلة اسمًا قصيرًا للمسح السريع." },
+    { "label": "Language / Tech", "label_ar": "اللغة / التقنية", "type": "text", "help": "Note which stack or framework it relates to.", "help_ar": "لاحظ إلى أي حزمة تقنية أو إطار عمل يتعلق الأمر." },
+    { "label": "Problem / Context", "label_ar": "المشكلة / السياق", "type": "textarea", "help": "Describe what you were trying to solve or understand.", "help_ar": "صف ما كنت تحاول حله أو فهمه." },
+    { "label": "Code Snippet", "label_ar": "مقتطف الكود", "type": "textarea", "help": "Paste the key code or pseudocode that helped.", "help_ar": "الصق الكود الرئيسي أو الكود الزائف الذي ساعد." },
+    { "label": "Why this approach (short)", "label_ar": "لماذا هذا النهج (باختصار)", "type": "textarea", "help": "Record your reasoning — future-you will thank you.", "help_ar": "سجل منطقك — مستقبلك سيشكرك." },
+    { "label": "Edge cases / Gotchas", "label_ar": "حالات الحافة / الفخاخ", "type": "textarea", "help": "Note what might break or any tricky conditions.", "help_ar": "لاحظ ما قد يتعطل أو أي ظروف صعبة." },
+    { "label": "Related files / links", "label_ar": "الملفات / الروابط ذات الصلة", "type": "text", "help": "Add file names, commits, or documentation links.", "help_ar": "أضف أسماء الملفات أو الالتزامات أو روابط التوثيق." },
+    { "label": "Last tested", "label_ar": "آخر اختبار", "type": "date", "help": "When was this snippet verified as working?", "help_ar": "متى تم التحقق من أن هذا المقتطف يعمل؟" },
+    { "label": "Tags", "label_ar": "الوسوم", "type": "tags", "help": "Group by topic (e.g., regex, API, auth).", "help_ar": "جمّع حسب الموضوع (مثل: regex, API, auth)." }
+  ],
+  "stories": [
+    "The quick fix: Describe the bug you solved and paste the minimal code that fixed it. Explain why the fix works in two sentences.",
+    "The design decision: When did you choose this approach? Record the trade-offs you considered (3 bullets).",
+    "The future you: Write a 1-sentence reminder for the future maintainer (or future you) about where to look if this fails."
+  ],
+  "stories_ar": [
+    "الإصلاح السريع: صف الخطأ الذي قمت بحله والصق الحد الأدنى من الكود الذي أصلحه. اشرح لماذا يعمل الإصلاح في جملتين.",
+    "قرار التصميم: متى اخترت هذا النهج؟ سجل المقايضات التي أخذتها في الاعتبار (3 نقاط).",
+    "أنت المستقبلي: اكتب تذكيرًا من جملة واحدة للمشرف المستقبلي (أو أنت المستقبلي) حول مكان البحث إذا فشل هذا."
+  ],
+  "stories_help": {
+    "The quick fix": "Captures small wins that are easy to forget but often reused.",
+    "The design decision": "Documents reasoning — great for onboarding and avoiding regressions.",
+    "The future you": "Saves debugging time by leaving breadcrumbs."
+  },
+  "stories_help_ar": {
+    "الإصلاح السريع": "يلتقط الانتصارات الصغيرة التي يسهل نسيانها ولكن غالبًا ما يعاد استخدامها.",
+    "قرار التصميم": "يوثق المنطق — رائع لتدريب الجدد وتجنب التراجعات.",
+    "أنت المستقبلي": "يوفر وقت تصحيح الأخطاء عن طريق ترك فتات الخبز."
+  }
+}

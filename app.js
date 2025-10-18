@@ -119,9 +119,16 @@ async function loadTemplatesFromFiles(){ try{ const idxResp = await fetch('templ
         // Create a deep copy for the Arabic templates to prevent data corruption.
         // A shallow copy (Object.assign) would cause both languages to share the same 'fields' array reference.
         APP.templates.ar = JSON.parse(JSON.stringify(templates));
-        // A real app would provide fully translated JSON files. For now, we just ensure they are separate.
-        // Example of how you might translate if the data was available:
-        // APP.templates.ar.forEach(t => { t.name = t.name_ar || t.name; t.fields.forEach(f => f.label = f.label_ar || f.label); });
+        // For Arabic templates, replace the English text with Arabic if translations are provided.
+        APP.templates.ar.forEach(t => {
+            t.name = t.name_ar || t.name;
+            t.stories = t.stories_ar || t.stories;
+            t.stories_help = t.stories_help_ar || t.stories_help;
+            t.fields.forEach(f => {
+                f.label = f.label_ar || f.label;
+                f.help = f.help_ar || f.help;
+            });
+        });
     }catch(err){ console.warn('Could not load templates folder, falling back to built-in templates', err);
         // fallback to original inline set
         APP.templates = {

@@ -1,3 +1,12 @@
 {
-  "templates": ["brain.json", "problem.json", "goal.json", "study.json"]
+  "templates": [
+    "brain-dump-seed.json",
+    "study.json",
+    "weekly-review.json",
+    "author-idea.json",
+    "artist-visualseed.json",
+    "programmer-knowledge.json",
+    "entrepreneur-insight.json",
+    "goal.json"
+  ]
 }

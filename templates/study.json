@@ -1,11 +1,35 @@
 {
   "id": "study",
   "name": "Study Notes",
+  "name_ar": "ملاحظات دراسية",
   "emoji": "📚",
-  "fields": [ { "label": "Topic", "type": "text" }, { "label": "Key Points", "type": "textarea" } ],
+  "fields": [
+    { "label": "Topic", "label_ar": "الموضوع", "type": "text", "help": "What subject or theme are you studying today?", "help_ar": "ما هو الموضوع أو المحور الذي تدرسه اليوم؟" },
+    { "label": "Class / Source", "label_ar": "الفصل / المصدر", "type": "text", "help": "Where did this information come from — course, video, or article?", "help_ar": "من أين أتت هذه المعلومة — دورة، فيديو، أو مقال؟" },
+    { "label": "Date", "label_ar": "التاريخ", "type": "date", "help": "Record when you studied this to track progress.", "help_ar": "سجل متى درست هذا لتتبع التقدم." },
+    { "label": "Key Points", "label_ar": "النقاط الرئيسية", "type": "textarea", "help": "Summarize the essential ideas or facts you want to remember.", "help_ar": "لخص الأفكار أو الحقائق الأساسية التي تريد تذكرها." },
+    { "label": "Memory Cue", "label_ar": "إشارة للذاكرة", "type": "text", "help": "A word, phrase, or image that helps you recall the topic.", "help_ar": "كلمة أو عبارة أو صورة تساعدك على تذكر الموضوع." },
+    { "label": "Action (1 line)", "label_ar": "إجراء (سطر واحد)", "type": "text", "help": "Write a small step or question to deepen your understanding later.", "help_ar": "اكتب خطوة صغيرة أو سؤال لتعميق فهمك لاحقًا." },
+    { "label": "Tags", "label_ar": "الوسوم", "type": "tags", "help": "Add keywords to find related topics easily.", "help_ar": "أضف كلمات رئيسية للعثور على الموضوعات ذات الصلة بسهولة." }
+  ],
   "stories": [
     "The curious student: Begin with a question that made you curious today. Write a 5-sentence explanation as if teaching it to someone new.",
-    "The aha moment: Describe a concept that suddenly clicked for you. What metaphor helps you remember it?",
-    "The application: Write one sentence about how you'll use this idea in real life, then expand into a short example."
-  ]
+    "The Aha moment: Describe one idea that clicked and give a short metaphor that helps you remember it.",
+    "The application: Write one sentence about how you'll use this idea in real life and one concrete next step to practice it within 48 hours."
+  ],
+  "stories_ar": [
+    "الطالب الفضولي: ابدأ بسؤال أثار فضولك اليوم. اكتب شرحًا من 5 جمل كما لو كنت تعلمه لشخص جديد.",
+    "لحظة الإدراك: صف فكرة واحدة فهمتها فجأة وأعطِ استعارة قصيرة تساعدك على تذكرها.",
+    "التطبيق: اكتب جملة واحدة حول كيفية استخدامك لهذه الفكرة في الحياة الواقعية وخطوة تالية ملموسة لممارستها في غضون 48 ساعة."
+  ],
+  "stories_help": {
+    "The curious student": "Transforms passive reading into active thinking — ask, explain, and teach.",
+    "The Aha moment": "Strengthens recall by linking new knowledge to vivid imagery.",
+    "The application": "Connects study to action — ensures knowledge becomes a skill."
+  },
+  "stories_help_ar": {
+    "الطالب الفضولي": "يحول القراءة السلبية إلى تفكير نشط — اسأل، اشرح، وعلّم.",
+    "لحظة الإدراك": "يقوي الاستدعاء عن طريق ربط المعرفة الجديدة بصور حية.",
+    "التطبيق": "يربط الدراسة بالعمل — يضمن أن المعرفة تصبح مهارة."
+  }
 }

@@ -1,0 +1,37 @@
+{
+  "id": "entrepreneur-insight",
+  "name": "Customer Insight & Experiment",
+  "name_ar": "رؤية العميل والتجربة",
+  "emoji": "💡",
+  "fields": [
+    { "label": "Problem Observed", "label_ar": "المشكلة الملاحظة", "type": "text", "help": "What pain did you notice in your user or market?", "help_ar": "ما الألم الذي لاحظته في مستخدمك أو سوقك؟" },
+    { "label": "Who (persona)", "label_ar": "من (الشخصية)", "type": "text", "help": "Which customer segment or profile does this relate to?", "help_ar": "إلى أي شريحة عملاء أو ملف شخصي يرتبط هذا؟" },
+    { "label": "Source (call / talk / post)", "label_ar": "المصدر (مكالمة / حديث / منشور)", "type": "text", "help": "Where did you get this insight — call, survey, Reddit, etc.?", "help_ar": "من أين حصلت على هذه الرؤية — مكالمة، استبيان، ريديت، إلخ؟" },
+    { "label": "Quote / Evidence", "label_ar": "اقتباس / دليل", "type": "textarea", "help": "Record the exact words or data that describe the problem.", "help_ar": "سجل الكلمات أو البيانات الدقيقة التي تصف المشكلة." },
+    { "label": "Hypothesis", "label_ar": "الفرضية", "type": "textarea", "help": "What do you believe might solve or explain this problem?", "help_ar": "ما الذي تعتقد أنه قد يحل أو يفسر هذه المشكلة؟" },
+    { "label": "Experiment / Next Step", "label_ar": "التجربة / الخطوة التالية", "type": "textarea", "help": "Describe how you’ll test your idea quickly and cheaply.", "help_ar": "صف كيف ستختبر فكرتك بسرعة وبتكلفة زهيدة." },
+    { "label": "Metric to track", "label_ar": "المقياس الذي يجب تتبعه", "type": "text", "help": "How will you know if the experiment worked?", "help_ar": "كيف ستعرف ما إذا كانت التجربة قد نجحت؟" },
+    { "label": "Status", "label_ar": "الحالة", "type": "select", "options": ["note", "planned", "running", "done", "discarded"], "help": "Mark the current progress of your experiment.", "help_ar": "حدد التقدم الحالي لتجربتك." },
+    { "label": "Tags", "label_ar": "الوسوم", "type": "tags", "help": "Use tags for type of problem, user segment, or product area.", "help_ar": "استخدم الوسوم لنوع المشكلة أو شريحة المستخدم أو منطقة المنتج." }
+  ],
+  "stories": [
+    "The quick interview: Paste the most revealing quote you heard and explain in one paragraph why it matters.",
+    "The experiment plan: Write a 3-step experiment to validate the hypothesis and list the single metric you'll watch.",
+    "The stubborn insight: If this fails, write one pivot idea you'd try next and why."
+  ],
+  "stories_ar": [
+    "المقابلة السريعة: الصق الاقتباس الأكثر كشفًا الذي سمعته واشرح في فقرة واحدة سبب أهميته.",
+    "خطة التجربة: اكتب تجربة من 3 خطوات للتحقق من صحة الفرضية واذكر المقياس الوحيد الذي ستراقبه.",
+    "الرؤية العنيدة: إذا فشل هذا، فاكتب فكرة محورية واحدة ستجربها بعد ذلك ولماذا."
+  ],
+  "stories_help": {
+    "The quick interview": "Helps you preserve authentic user language for messaging later.",
+    "The experiment plan": "Turns learning into action — a mini test, not a guess.",
+    "The stubborn insight": "Encourages iteration — don’t stop at failure, evolve."
+  },
+  "stories_help_ar": {
+    "المقابلة السريعة": "يساعدك على الحفاظ على لغة المستخدم الأصيلة للرسائل لاحقًا.",
+    "خطة التجربة": "يحول التعلم إلى عمل — اختبار صغير، وليس تخمينًا.",
+    "الرؤية العنيدة": "يشجع على التكرار — لا تتوقف عند الفشل، بل تطور."
+  }
+}

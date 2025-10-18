@@ -1,0 +1,38 @@
+{
+  "id": "author-idea",
+  "name": "Author — Scene & Character Seed",
+  "name_ar": "مؤلف — بذرة مشهد وشخصية",
+  "emoji": "✍️",
+  "fields": [
+    { "label": "Work / Project", "label_ar": "العمل / المشروع", "type": "text", "help": "Which story, novel, or project does this note belong to?", "help_ar": "إلى أي قصة أو رواية أو مشروع تنتمي هذه الملاحظة؟" },
+    { "label": "Scene / Note Title", "label_ar": "عنوان المشهد / الملاحظة", "type": "text", "help": "A short name for the moment or idea.", "help_ar": "اسم قصير للحظة أو الفكرة." },
+    { "label": "Character(s) Involved", "label_ar": "الشخصيات المشاركة", "type": "text", "help": "List who’s present or affected in this scene.", "help_ar": "اذكر من هو حاضر أو متأثر في هذا المشهد." },
+    { "label": "Setting (place/time)", "label_ar": "المكان (المكان/الزمان)", "type": "text", "help": "Where and when does it happen?", "help_ar": "أين ومتى يحدث ذلك؟" },
+    { "label": "Core conflict / goal", "label_ar": "الصراع الأساسي / الهدف", "type": "textarea", "help": "What’s driving tension or desire here?", "help_ar": "ما الذي يثير التوتر أو الرغبة هنا؟" },
+    { "label": "Line of dialogue (one)", "label_ar": "سطر حوار (واحد)", "type": "text", "help": "A sentence that captures the tone or conflict.", "help_ar": "جملة تلتقط النبرة أو الصراع." },
+    { "label": "Beat (short summary)", "label_ar": "الإيقاع (ملخص قصير)", "type": "textarea", "help": "Summarize what happens emotionally or physically.", "help_ar": "لخص ما يحدث عاطفياً أو جسدياً." },
+    { "label": "Mood references / links", "label_ar": "مراجع / روابط للحالة المزاجية", "type": "text", "help": "Add images, music, or tone notes for inspiration.", "help_ar": "أضف صورًا أو موسيقى أو ملاحظات نبرة للإلهام." },
+    { "label": "Status", "label_ar": "الحالة", "type": "select", "options": ["seed", "drafted", "revised", "locked"], "help": "Mark progress of this scene or note.", "help_ar": "حدد تقدم هذا المشهد أو الملاحظة." },
+    { "label": "Tags", "label_ar": "الوسوم", "type": "tags", "help": "Theme, POV, or timeline tags to connect related scenes.", "help_ar": "وسوم للموضوع أو وجهة النظر أو الخط الزمني لربط المشاهد ذات الصلة." }
+  ],
+  "stories": [
+    "The morning draft: Write the opening line of this scene as if you're surprising the reader.",
+    "Character truth: Note one small secret about the character that nobody else knows — use it to drive the scene.",
+    "The compact arc: Describe how the scene changes the character in one sentence."
+  ],
+  "stories_ar": [
+    "مسودة الصباح: اكتب السطر الافتتاحي لهذا المشهد كما لو كنت تفاجئ القارئ.",
+    "حقيقة الشخصية: لاحظ سرًا صغيرًا واحدًا عن الشخصية لا يعرفه أي شخص آخر — استخدمه لدفع المشهد.",
+    "القوس المدمج: صف كيف يغير المشهد الشخصية في جملة واحدة."
+  ],
+  "stories_help": {
+    "The morning draft": "Helps you break the ice and start writing fast.",
+    "Character truth": "Pushes depth — secrets make characters feel real.",
+    "The compact arc": "Keeps focus on transformation instead of filler."
+  },
+  "stories_help_ar": {
+    "مسودة الصباح": "يساعدك على كسر الجليد والبدء في الكتابة بسرعة.",
+    "حقيقة الشخصية": "يدفع نحو العمق — الأسرار تجعل الشخصيات تبدو حقيقية.",
+    "القوس المدمج": "يحافظ على التركيز على التحول بدلاً من الحشو."
+  }
+}

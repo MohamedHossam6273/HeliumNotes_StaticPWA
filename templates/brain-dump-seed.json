@@ -1,0 +1,35 @@
+{
+  "id": "brain-dump-seed",
+  "name": "Brain Dump / Idea Seed",
+  "name_ar": "تفريغ أفكار / بذرة فكرة",
+  "emoji": "🪴",
+  "fields": [
+    { "label": "Title / One-liner", "label_ar": "العنوان / سطر واحد", "type": "text", "help": "Give your thought a catchy or memorable name.", "help_ar": "أعط فكرتك اسمًا جذابًا أو لا يُنسى." },
+    { "label": "Raw dump", "label_ar": "تفريغ خام", "type": "textarea", "help": "Pour everything out without editing — the goal is release.", "help_ar": "أفرغ كل شيء دون تعديل — الهدف هو التحرر." },
+    { "label": "Category", "label_ar": "الفئة", "type": "text", "help": "Tag what type of idea it is — project, quote, dream, etc.", "help_ar": "صنّف نوع الفكرة — مشروع، اقتباس، حلم، إلخ." },
+    { "label": "Potential next step (one)", "label_ar": "الخطوة التالية المحتملة (واحدة)", "type": "text", "help": "Write the smallest possible thing to do next.", "help_ar": "اكتب أصغر شيء ممكن للقيام به بعد ذلك." },
+    { "label": "Confidence (1-5)", "label_ar": "الثقة (1-5)", "type": "select", "options": ["1","2","3","4","5"], "help": "How confident are you this idea is worth pursuing?", "help_ar": "ما مدى ثقتك بأن هذه الفكرة تستحق المتابعة؟" },
+    { "label": "Review date", "label_ar": "تاريخ المراجعة", "type": "date", "help": "When you want to revisit this idea.", "help_ar": "متى تريد إعادة النظر في هذه الفكرة." },
+    { "label": "Tags", "label_ar": "الوسوم", "type": "tags", "help": "Add any quick searchable words to group similar thoughts.", "help_ar": "أضف أي كلمات سريعة قابلة للبحث لتجميع الأفكار المتشابهة." }
+  ],
+  "stories": [
+    "Speed seed: Write the whole raw thought in one minute — no editing.",
+    "Distill: Capture the core value of the idea in a single sentence.",
+    "Action: Write the smallest possible next action (5 minutes or less) to test the idea."
+  ],
+  "stories_ar": [
+    "بذرة سريعة: اكتب الفكرة الخام بأكملها في دقيقة واحدة — بدون تعديل.",
+    "تقطير: التقط القيمة الأساسية للفكرة في جملة واحدة.",
+    "إجراء: اكتب أصغر إجراء تالٍ ممكن (5 دقائق أو أقل) لاختبار الفكرة."
+  ],
+  "stories_help": {
+    "Speed seed": "Helps capture ideas before they fade.",
+    "Distill": "Clarifies what really matters.",
+    "Action": "Turns dreams into experiments — fast."
+  },
+  "stories_help_ar": {
+    "بذرة سريعة": "يساعد على التقاط الأفكار قبل أن تتلاشى.",
+    "تقطير": "يوضح ما هو مهم حقًا.",
+    "إجراء": "يحول الأحلام إلى تجارب — بسرعة."
+  }
+}
