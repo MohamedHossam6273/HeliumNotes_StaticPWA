@@ -1,112 +1,175 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="pageTitle">Welcome to HeliumNotes</title>
-    <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#3b82f6"/>
-    <link rel="stylesheet" href="landing.css">
-    <link rel="icon" href="icons/icon-192x192.png" type="image/png">
-    <meta id="pageDescription" name="description" content="Organize your thoughts, achieve your goals, and grow a garden of accomplishments with HeliumNotes.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="pageTitle">Welcome to HeliumNotes</title>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#3b82f6"/>
+  <link rel="icon" href="icons/icon-192x192.png" type="image/png">
+  <meta id="pageDescription" name="description" content="Organize your thoughts, achieve your goals, and grow a garden of accomplishments with HeliumNotes.">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Cairo', sans-serif;
+      background: linear-gradient(180deg, #f0fdf4 0%, #ffffff 100%);
+      color: #1e293b;
+    }
+    .container { text-align: center; padding: 2rem; max-width: 900px; margin: auto; }
+    .landing-header-controls { text-align: right; padding: 1rem 0; }
+    .lang-btn {
+      background: none; border: 2px solid #16a34a; border-radius: 8px;
+      padding: 0.5rem 1rem; cursor: pointer; color: #166534; font-weight: bold; transition: 0.3s;
+    }
+    .lang-btn:hover { background: #16a34a; color: white; }
+    header { padding: 3rem 1rem 2rem; position: relative; overflow: hidden; }
+    h1 { font-size: 2.5rem; color: #14532d; }
+    p { font-size: 1.1rem; color: #000; margin-top: 0.5rem; }
+    .features { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem; margin-top: 3rem; }
+    .feature-card {
+      background: white; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      width: 260px; padding: 1.5rem; transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .feature-card:hover { transform: translateY(-5px); box-shadow: 0 6px 16px rgba(0,0,0,0.1); }
+    .feature-card h3 { color: #166534; font-size: 1.2rem; margin-bottom: 0.5rem; }
+    .cta-section {
+      margin-top: 4rem; background: #dcfce7; border-radius: 16px; padding: 3rem 2rem;
+    }
+    .cta-section h2 { color: #14532d; margin-bottom: 1rem; font-size: 1.8rem; }
+    .cta-section p { max-width: 600px; margin: auto; font-size: 1rem; margin-bottom: 2rem; }
+    .cta-button {
+      background-color: #22c55e; color: white; padding: 0.9rem 1.8rem; border-radius: 8px;
+      border: none; font-size: 1rem; cursor: pointer; text-decoration: none; transition: background 0.3s ease;
+    }
+    .cta-button:hover { background-color: #16a34a; }
+    footer {
+      margin-top: 4rem; padding: 2rem; background: #14532d; color: white;
+      border-radius: 10px 10px 0 0; font-size: 0.9rem;
+    }
+    @media (max-width: 768px) { .feature-card { width: 100%; max-width: 320px; } h1 { font-size: 2rem; } }
+  </style>
 </head>
+
 <body>
-    <div class="container">
-        <div class="landing-header-controls">
-            <button class="lang-btn" id="langBtn" onclick="toggleLanguage()">🌐 AR</button>
-        </div>
-        <header class="header">
-            <h1 id="mainHeading">🌿 HeliumNotes</h1>
-            <p id="subHeading">Organize your thoughts, achieve your goals, and grow a garden of accomplishments.</p>
-        </header>
-
-        <main class="main-content">
-            <div class="feature-card">
-                <h3 id="feature1Title">📝 Smart Templates</h3>
-                <p id="feature1Desc">Get started quickly with pre-built templates for brain dumps, problem-solving, and study notes.</p>
-            </div>
-            <div class="feature-card">
-                <h3 id="feature2Title">🎯 Goal Tracking</h3>
-                <p id="feature2Desc">Set your daily or weekly goals and easily track your progress toward achieving them.</p>
-            </div>
-            <div class="feature-card">
-                <h3 id="feature3Title">🌿 Your Digital Garden</h3>
-                <p id="feature3Desc">Every note you write grows a plant in your personal garden, motivating you to write more.</p>
-            </div>
-        </main>
-
-        <a href="app.html" class="cta-button" id="launchBtn">Launch App</a>
-        <button class="cta-button" id="installBtn" onclick="installApp()" style="display: none; margin-top: 15px;">🚀 Install App</button>
+  <div class="container">
+    <div class="landing-header-controls">
+      <button class="lang-btn" id="langBtn" onclick="toggleLanguage()">🌐 AR</button>
     </div>
 
-    <script>
-        const translations = {
-            en: {
-                pageTitle: "Welcome to HeliumNotes",
-                pageDescription: "Organize your thoughts, achieve your goals, and grow a garden of accomplishments with HeliumNotes.",
-                mainHeading: "🌿 HeliumNotes",
-                subHeading: "Organize your thoughts, achieve your goals, and grow a garden of accomplishments.",
-                feature1Title: "📝 Smart Templates",
-                feature1Desc: "Get started quickly with pre-built templates for brain dumps, problem-solving, and study notes.",
-                feature2Title: "🎯 Goal Tracking",
-                feature2Desc: "Set your daily or weekly goals and easily track your progress toward achieving them.",
-                feature3Title: "🌿 Your Digital Garden",
-                feature3Desc: "Every note you write grows a plant in your personal garden, motivating you to write more.",
-                launchBtn: "Launch App",
-                langBtn: "🌐 AR",
-                installBtn: "🚀 Install App"
-            },
-            ar: {
-                pageTitle: "أهلاً بك في ملاحظات هيليوم",
-                pageDescription: "نظّم أفكارك، حقق أهدافك، وازرع حديقة من الإنجازات مع ملاحظات هيليوم.",
-                mainHeading: "🌿 ملاحظات هيليوم",
-                subHeading: "نظّم أفكارك، حقق أهدافك، وازرع حديقة من الإنجازات.",
-                feature1Title: "📝 قوالب ذكية",
-                feature1Desc: "ابدأ بسرعة باستخدام قوالب جاهزة لتفريغ الأفكار وحل المشكلات وتدوين ملاحظات الدراسة.",
-                feature2Title: "🎯 تتبع الأهداف",
-                feature2Desc: "حدد أهدافك اليومية أو الأسبوعية وتتبع تقدمك نحو تحقيقها بسهولة.",
-                feature3Title: "🌿 حديقتك الرقمية",
-                feature3Desc: "كل ملاحظة تكتبها تنمو نبتة في حديقتك الشخصية، مما يحفزك على الكتابة أكثر.",
-                launchBtn: "افتح التطبيق",
-                langBtn: "🌐 EN",
-                installBtn: "🚀 تثبيت التطبيق"
-            }
-        };
+    <header class="header">
+      <h1 id="mainHeading">🌿 HeliumNotes</h1>
+      <p id="subHeading">Organize your thoughts, achieve your goals, and grow a garden of accomplishments.</p>
+    </header>
 
-        let currentLang = localStorage.getItem('lang') || 'en';
+    <main>
+      <div class="features">
+        <div class="feature-card">
+          <h3 id="feature1Title">📝 Smart Templates</h3>
+          <p id="feature1Desc">Start quickly with ready-made templates for reflection, learning, and creative writing.</p>
+        </div>
+        <div class="feature-card">
+          <h3 id="feature2Title">🎯 Goal Tracking</h3>
+          <p id="feature2Desc">Set your daily or weekly goals and track your progress with ease.</p>
+        </div>
+        <div class="feature-card">
+          <h3 id="feature3Title">🌿 Your Digital Garden</h3>
+          <p id="feature3Desc">Each note you write grows into a plant in your personal garden — watch your ideas bloom.</p>
+        </div>
+        <div class="feature-card">
+          <h3 id="feature4Title">🔄 Weekly Rediscovery</h3>
+          <p id="feature4Desc">Revisit random past notes weekly to rediscover hidden insights and inspiration.</p>
+        </div>
+      </div>
 
-        function applyLanguage() {
-            const langData = translations[currentLang];
-            document.documentElement.lang = currentLang;
-            document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
-            for (const key in langData) {
-                const element = document.getElementById(key);
-                if (element) {
-                    if (key === 'pageDescription') element.setAttribute('content', langData[key]);
-                    else element.textContent = langData[key];
-                }
-            }
-        }
+      <section class="cta-section">
+        <h2 id="ctaTitle">Start Growing Your Mind Today 🌱</h2>
+        <p id="ctaDesc">HeliumNotes is your calm space for thinking, writing, and personal growth — all offline, all private.</p>
+        <a href="app.html" class="cta-button" id="launchBtn">Launch App</a>
+        <button class="cta-button" id="installBtn" style="display:none; margin-top:15px;">🚀 Install App</button>
+      </section>
+    </main>
 
-        function toggleLanguage() {
-            currentLang = currentLang === 'en' ? 'ar' : 'en';
-            localStorage.setItem('lang', currentLang);
-            applyLanguage();
-        }
+    <footer>
+      <p>© 2025 HeliumNotes — All Rights Reserved</p>
+    </footer>
+  </div>
 
-        // Apply language on initial load
-        applyLanguage();
-    </script>
-    <script src="pwa-init.js"></script>
-    <script>
-        // Register PWA features immediately on script load.
-        registerServiceWorker();
-        setupInstallPrompt();
+  <script>
+    // Translation system (same as before)
+    const translations = {
+      en: {
+        pageTitle: "Welcome to HeliumNotes",
+        mainHeading: "🌿 HeliumNotes",
+        subHeading: "Organize your thoughts, achieve your goals, and grow a garden of accomplishments.",
+        feature1Title: "📝 Smart Templates",
+        feature1Desc: "Start quickly with ready-made templates for reflection, learning, and creative writing.",
+        feature2Title: "🎯 Goal Tracking",
+        feature2Desc: "Set your daily or weekly goals and track your progress with ease.",
+        feature3Title: "🌿 Your Digital Garden",
+        feature3Desc: "Each note you write grows into a plant in your personal garden — watch your ideas bloom.",
+        feature4Title: "🔄 Weekly Rediscovery",
+        feature4Desc: "Revisit random past notes weekly to rediscover hidden insights and inspiration.",
+        ctaTitle: "Start Growing Your Mind Today 🌱",
+        ctaDesc: "HeliumNotes is your calm space for thinking, writing, and personal growth — all offline, all private.",
+        launchBtn: "Launch App",
+        langBtn: "🌐 AR",
+        installBtn: "🚀 Install App"
+      },
+      ar: {
+        pageTitle: "مرحباً بك في ملاحظات هيليوم",
+        mainHeading: "🌿 ملاحظات هيليوم",
+        subHeading: "نظّم أفكارك، حقق أهدافك، وازرع حديقة من الإنجازات.",
+        feature1Title: "📝 قوالب ذكية",
+        feature1Desc: "ابدأ بسرعة باستخدام قوالب جاهزة للتأمل، والتعلّم، والكتابة الإبداعية.",
+        feature2Title: "🎯 تتبع الأهداف",
+        feature2Desc: "حدد أهدافك اليومية أو الأسبوعية وتتبع تقدمك بسهولة.",
+        feature3Title: "🌿 حديقتك الرقمية",
+        feature3Desc: "كل ملاحظة تكتبها تنبت نبتة في حديقتك الشخصية — راقب أفكارك وهي تزدهر.",
+        feature4Title: "🔄 إعادة اكتشاف أسبوعية",
+        feature4Desc: "استرجع بعض ملاحظاتك القديمة كل أسبوع لتجد أفكارًا جديدة وإلهامًا متجددًا.",
+        ctaTitle: "ابدأ رحلتك نحو صفاء الذهن اليوم 🌱",
+        ctaDesc: "هيليوم نوتس هو مساحتك الهادئة للتفكير والنمو الذاتي — يعمل دون إنترنت وبخصوصية تامة.",
+        launchBtn: "افتح التطبيق",
+        langBtn: "🌐 EN",
+        installBtn: "🚀 تثبيت التطبيق"
+      }
+    };
 
-        document.addEventListener('DOMContentLoaded', () => {
-            const installButton = document.getElementById('installBtn');
-            if (installButton) installButton.addEventListener('click', installApp);
-        });
-    </script>
+    let currentLang = localStorage.getItem('lang') || 'en';
+    function applyLanguage(){
+      const l=translations[currentLang];
+      document.documentElement.lang=currentLang;
+      document.documentElement.dir=currentLang==='ar'?'rtl':'ltr';
+      for(const k in l){const e=document.getElementById(k);if(e)e.textContent=l[k];}
+    }
+    function toggleLanguage(){
+      currentLang=currentLang==='en'?'ar':'en';
+      localStorage.setItem('lang',currentLang);
+      applyLanguage();
+    }
+    applyLanguage();
+  </script>
+
+  <script src="pwa-init.js"></script>
+  <script>
+    // Ensure PWA install button shows when allowed
+    let deferredPrompt;
+    const installBtn = document.getElementById('installBtn');
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      installBtn.style.display = 'inline-block';
+      installBtn.addEventListener('click', async () => {
+        deferredPrompt.prompt();
+        const { outcome } = await deferredPrompt.userChoice;
+        if (outcome === 'accepted') installBtn.style.display = 'none';
+        deferredPrompt = null;
+      });
+    });
+
+    // In case app is already installed
+    window.addEventListener('appinstalled', () => installBtn.style.display = 'none');
+  </script>
 </body>
 </html>
