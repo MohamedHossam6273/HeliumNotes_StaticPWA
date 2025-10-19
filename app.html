@@ -16,6 +16,7 @@
         <div class="header">
             <div class="logo">🌿 <span id="appTitle">HeliumNotes</span></div>
             <div class="header-controls">
+                <button class="icon-btn" id="passingThoughtBtn" onclick="initiatePassingThought()">🌬️</button>
                 <button class="icon-btn" id="langBtn" onclick="toggleLang()">🌐</button>
                 <button class="icon-btn" id="themeBtn" onclick="toggleTheme()">🌙</button>
             </div>
@@ -65,8 +66,12 @@
                             <button class="color-btn" style="background:#8b5cf6" data-color="purple" onclick="selectColor(this)"></button>
                             <button class="color-btn" style="background:#ec4899" data-color="pink" onclick="selectColor(this)"></button>
                         </div>
-                        
-                        <button class="btn" onclick="addNote()"><span id="b1">✨ Add Note</span></button>
+
+                        <div id="formActions">
+                            <button class="btn" onclick="addNote()"><span id="b1">✨ Add Note</span></button>
+                        </div>
+                        <div id="passingThoughtActions" style="display:none; margin-top: 15px; display: flex; gap: 10px;">
+                        </div>
                     </div>
                     
                     <h3 id="h2">Your Notes</h3>

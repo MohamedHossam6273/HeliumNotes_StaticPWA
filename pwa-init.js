@@ -27,5 +27,4 @@ async function installApp() {
     const result = await installPromptEvent.prompt();
     console.log(`Install prompt result: ${result.outcome}`);
     installPromptEvent = null;
-    document.getElementById('installBtn').style.display = 'none';
 }

@@ -1,0 +1,11 @@
+{
+  "id": "passing-thought",
+  "name": "Passing Thought",
+  "name_ar": "فكرة عابرة",
+  "emoji": "🌬️",
+  "fields": [
+    { "label": "What's on your mind?", "label_ar": "ما الذي يدور في ذهنك؟", "type": "textarea" }
+  ],
+  "stories": [],
+  "stories_ar": []
+}

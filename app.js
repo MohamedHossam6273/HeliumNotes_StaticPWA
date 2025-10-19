@@ -11,8 +11,8 @@ const APP = {
 };
 
 const T = {
-    en: { appTitle:"HeliumNotes",t1:"📝 Notes",t2:"🌿 Garden",t3:"🎯 Goals",t4:"📊 Analytics",t5:"⚙️ Settings", h1:"📝 Create Note",l1:"Template",l2:"Notebook",l3:"Title",l4:"Content",l5:"Color",b1:"✨ Add Note", h2:"Your Notes",h3:"📋 Templates",p1:"Select a template to structure your note",h4:"🌿 Your Garden", p2:"Each note grows a plant in your garden",h5:"🎯 Goals",b2:"Add Goal",h6:"📊 Analytics", sl1:"Total",sl2:"Done",sl3:"Today",sl4:"Plants",h7:"⚙️ Settings",h8:"Import/Export", b3:"📥 Export Notes",b4:"🗑️ Clear All",b5:"📄 Export PDF" },
-    ar: { appTitle:"ملاحظات هيليوم",t1:"📝 الملاحظات",t2:"🌿 الحديقة",t3:"🎯 الأهداف",t4:"📊 التحليلات",t5:"⚙️ الإعدادات", h1:"📝 إنشاء ملاحظة",l1:"القالب",l2:"دفتر الملاحظات",l3:"العنوان",l4:"المحتوى",l5:"اللون",b1:"✨ إضافة ملاحظة", h2:"ملاحظاتك",h3:"📋 القوالب",p1:"اختر قالباً لتنظيم ملاحظتك",h4:"🌿 حديقتك", p2:"كل ملاحظة تنمو نبتة في حديقتك",h5:"🎯 الأهداف",b2:"إضافة هدف",h6:"📊 التحليلات", sl1:"الإجمالي",sl2:"المكتملة",sl3:"اليوم",sl4:"النباتات",h7:"⚙️ الإعدادات",h8:"استيراد/تصدير", b3:"📥 تصدير الملاحظات",b4:"🗑️ مسح الكل",b5:"📄 تصدير PDF" }
+    en: { appTitle:"HeliumNotes",t1:"📝 Notes",t2:"🌿 Garden",t3:"🎯 Goals",t4:"📊 Analytics",t5:"⚙️ Settings", h1:"📝 Create Note",l1:"Template",l2:"Notebook",l3:"Title",l4:"Content",l5:"Color",b1:"✨ Add Note", h2:"Your Notes",h3:"📋 Templates",p1:"Select a template to structure your note",h4:"🌿 Your Garden", p2:"Each note grows a plant in your garden",h5:"🎯 Goals",b2:"Add Goal",h6:"📊 Analytics", sl1:"Total",sl2:"Done",sl3:"Today",sl4:"Plants",h7:"⚙️ Settings",h8:"Import/Export", b3:"📥 Export Notes",b4:"🗑️ Clear All",b5:"📄 Export PDF", bLetGo: "🌬️ Let It Go", bArchive: "🗄️ Archive It" },
+    ar: { appTitle:"ملاحظات هيليوم",t1:"📝 الملاحظات",t2:"🌿 الحديقة",t3:"🎯 الأهداف",t4:"📊 التحليلات",t5:"⚙️ الإعدادات", h1:"📝 إنشاء ملاحظة",l1:"القالب",l2:"دفتر الملاحظات",l3:"العنوان",l4:"المحتوى",l5:"اللون",b1:"✨ إضافة ملاحظة", h2:"ملاحظاتك",h3:"📋 القوالب",p1:"اختر قالباً لتنظيم ملاحظتك",h4:"🌿 حديقتك", p2:"كل ملاحظة تنمو نبتة في حديقتك",h5:"🎯 الأهداف",b2:"إضافة هدف",h6:"📊 التحليلات", sl1:"الإجمالي",sl2:"المكتملة",sl3:"اليوم",sl4:"النباتات",h7:"⚙️ الإعدادات",h8:"استيراد/تصدير", b3:"📥 تصدير الملاحظات",b4:"🗑️ مسح الكل",b5:"📄 تصدير PDF", bLetGo: "🌬️ اتركها تذهب", bArchive: "🗄️ أرشفها" }
 };
 
 const PLANTS = {blue:'🌸',green:'🌱',amber:'🌻',red:'🌹',purple:'🌷',pink:'💐'};
@@ -51,19 +51,53 @@ function renderTemplates(){ const sel = document.getElementById('template'); con
 
 function renderInspiration(){ const sel = document.getElementById('template'); const insp = document.getElementById('templateInspiration'); if(!insp) return; const id = sel.value; if(!id){ insp.innerHTML = `<div class="template-inspiration"><h4>Template Inspiration</h4><p>Select a template to see short story prompts that inspire your writing.</p></div>`; return; } const temps = APP.templates[APP.lang] || []; const t = temps.find(x => x.id===id); if(!t){ insp.innerHTML=''; return; } const html = [`<div class="template-inspiration"><h4>${t.emoji} ${t.name} — Writing Prompts</h4>`].concat((t.stories||[]).map(s=>`<p>• ${s}</p>`)).join('') + `</div>`; insp.innerHTML = html; }
 
-function loadTemplate(){ const id = document.getElementById('template').value; const container = document.getElementById('templateFields'); const inspSelect = document.getElementById('templateInspiration'); if(!id){ container.innerHTML = ''; APP.currentTemplate = null; renderInspiration(); return; } const temp = APP.templates[APP.lang].find(t => t.id === id); APP.currentTemplate = temp; container.innerHTML = temp.fields.map((f,i) => `
+function loadTemplate(){ const id = document.getElementById('template').value; const container = document.getElementById('templateFields'); const inspSelect = document.getElementById('templateInspiration'); const formActions = document.getElementById('formActions'); const passingThoughtActions = document.getElementById('passingThoughtActions'); if(!id){ container.innerHTML = ''; APP.currentTemplate = null; formActions.style.display = 'block'; passingThoughtActions.style.display = 'none'; renderInspiration(); return; } const temp = APP.templates[APP.lang].find(t => t.id === id); APP.currentTemplate = temp; container.innerHTML = temp.fields.map((f,i) => `
         <div class="template-field">
             <label style="color:var(--accent);font-weight:600;margin-bottom:5px">${f.label}</label>
             ${f.type==='textarea' ? `<textarea id="tf${i}" rows="3"></textarea>` : `<input type="text" id="tf${i}">`}
         </div>
-    `).join(''); renderInspiration(); }
+    `).join(''); renderInspiration(); if(id === 'passing-thought'){ formActions.style.display = 'none'; passingThoughtActions.style.display = 'flex'; passingThoughtActions.innerHTML = `
+        <button class="btn btn-secondary" style="flex:1;" onclick="handleLetItGo()"><span id="bLetGo">${T[APP.lang].bLetGo}</span></button>
+        <button class="btn" style="flex:1;" onclick="handleArchiveIt()"><span id="bArchive">${T[APP.lang].bArchive}</span></button>
+    `; } else { formActions.style.display = 'block'; passingThoughtActions.style.display = 'none'; } }
+
+function initiatePassingThought(){ switchTab(0); document.getElementById('template').value = 'passing-thought'; loadTemplate(); const field = document.getElementById('tf0'); if(field) field.focus(); }
+
+function handleLetItGo(){
+    clearForm();
+    const msg = APP.lang === 'en' ? 'Released. You are lighter now.' : 'تم التحرير. أنت أخف الآن.';
+    notify(`🌬️ ${msg}`);
+}
+
+function handleArchiveIt(){
+    let tData = {};
+    if(APP.currentTemplate){
+        APP.currentTemplate.fields.forEach((f,i)=>{
+            const el = document.getElementById(`tf${i}`);
+            if(el && el.value) tData[f.label]=el.value;
+        });
+    }
+    const content = Object.values(tData).join('\n');
+    if(!content.trim()){
+        notify(APP.lang==='en'?'Please write something to archive.':'الرجاء كتابة شيء للأرشفة.');
+        return;
+    }
+    const note = { id:Date.now(), title: `Passing Thought - ${new Date().toLocaleString()}`, content: content, notebook: '🗄️ Release Archive', template: APP.currentTemplate?.name||'', templateData: {}, color: 'blue', done:false, date:new Date().toLocaleDateString(), timestamp:Date.now() };
+    APP.notes.unshift(note);
+    saveData();
+    clearForm();
+    renderNotes();
+    renderGarden();
+    updateStats();
+    notify(APP.lang==='en'?'✅ Archived!':'✅ تمت الأرشفة!');
+}
 
 function addNote(){ const title = document.getElementById('noteTitle').value.trim(); if(!title){ notify(APP.lang==='en'?'Please enter a title':'الرجاء إدخال عنوان'); return; }
     let tData = {}; if(APP.currentTemplate){ APP.currentTemplate.fields.forEach((f,i)=>{ const el = document.getElementById(`tf${i}`); if(el && el.value) tData[f.label]=el.value; }); }
     const note = { id:Date.now(), title, content:document.getElementById('noteContent').value, notebook:document.getElementById('notebook').value, template:APP.currentTemplate?.name||'', templateData:tData, color:APP.color, done:false, date:new Date().toLocaleDateString(), timestamp:Date.now() };
     APP.notes.unshift(note); saveData(); clearForm(); renderNotes(); renderGarden(); updateStats(); notify(APP.lang==='en'?'✅ Note added!':'✅ تمت الإضافة!'); }
 
-function clearForm(){ document.getElementById('noteTitle').value=''; document.getElementById('noteContent').value=''; document.getElementById('notebook').value=''; document.getElementById('template').value=''; document.getElementById('templateFields').innerHTML=''; APP.currentTemplate=null; renderInspiration(); }
+function clearForm(){ document.getElementById('noteTitle').value=''; document.getElementById('noteContent').value=''; document.getElementById('notebook').value=''; document.getElementById('template').value=''; document.getElementById('templateFields').innerHTML=''; APP.currentTemplate=null; loadTemplate(); renderInspiration(); }
 
 function renderNotes(){ const list = document.getElementById('notesList'); const search = (document.getElementById('searchNotes').value||'').toLowerCase(); const filtered = APP.notes.filter(n => n.title.toLowerCase().includes(search) || (n.content||'').toLowerCase().includes(search)); if(filtered.length===0){ list.innerHTML = `<div style="text-align:center;color:var(--text-light);padding:30px">${APP.lang==='en'?'No notes yet':'لا توجد ملاحظات'}</div>`; return; } list.innerHTML = filtered.map(n=>`
         <div class="note-item ${n.done?'completed':''}">
@@ -114,7 +148,6 @@ function esc(str){ const div=document.createElement('div'); div.textContent=str;
 async function loadTemplatesFromFiles(){ try{ const idxResp = await fetch('templates/index.json'); if(!idxResp.ok) throw new Error('templates index not found'); const idx = await idxResp.json(); const files = idx.templates || [];
         const templates = [];
         for(const f of files){ try{ const resp = await fetch(`templates/${f}`); if(!resp.ok) continue; const data = await resp.json(); templates.push(data); }catch(e){ console.warn('failed to load',f,e); } }
-        // Build language-specific arrays (we'll duplicate english names into ar if not present)
         APP.templates.en = templates.map(t=>t);
         // Create a deep copy for the Arabic templates to prevent data corruption.
         // A shallow copy (Object.assign) would cause both languages to share the same 'fields' array reference.

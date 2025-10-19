@@ -1,4 +1,4 @@
-const CACHE_NAME = 'helium-notes-v3'; // Increment this version when you update any of the cached files
+const CACHE_NAME = 'helium-notes-v4'; // Increment this version when you update any of the cached files
 const urlsToCache = [
   './',
   './index.html', // Landing page
@@ -18,6 +18,7 @@ const urlsToCache = [
   './templates/goal.json',
   './templates/problem.json',
   './templates/study.json',
+  './templates/passing-thought.json',
   'https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js'
 ];
 

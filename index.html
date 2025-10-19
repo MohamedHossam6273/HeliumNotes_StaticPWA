@@ -162,14 +162,8 @@
       installBtn.style.display = 'inline-block';
       installBtn.addEventListener('click', async () => {
         deferredPrompt.prompt();
-        const { outcome } = await deferredPrompt.userChoice;
-        if (outcome === 'accepted') installBtn.style.display = 'none';
-        deferredPrompt = null;
       });
     });
-
-    // In case app is already installed
-    window.addEventListener('appinstalled', () => installBtn.style.display = 'none');
   </script>
 </body>
 </html>
